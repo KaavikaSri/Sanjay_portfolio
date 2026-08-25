@@ -36,7 +36,7 @@ export function Contact() {
     id: key,
     value: values[key],
     "aria-invalid": Boolean(errors[key]),
-    "aria-describedby": errors[key] ? `${key}-error` : undefined,
+    "aria-describedby": errors[key] ? `${key}-error` : (undefined as string | undefined),
     onChange: (
       e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     ) => setValues((v) => ({ ...v, [key]: e.target.value })),
@@ -159,7 +159,7 @@ function FormField({
 }: {
   label: string;
   name: string;
-  error?: string;
+  error?: string | undefined;
   children: React.ReactNode;
 }) {
   return (
